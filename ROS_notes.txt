@@ -1,0 +1,512 @@
+#!/bin/bash
+cd /home/tegwyn/myROS && bash temperature01.sh
+
+
+# cd myROS && bash ROSCORE_initialise.sh &
+# /home/tegwyn/projects/ros/ws00/devel
+# source ~/catkin_ws/devel/setup.bash
+# source /home/tegwyn/projects/ros/ws00/devel/setup.bash
+# source /opt/ros/noetic/setup.bash
+# rostopic echo camera
+# rostopic echo Pose
+# rostopic echo /camera/realsense2_camera
+# rostopic echo camera/realsense2_camera
+# rostopic echo realsense2_camera
+# source /opt/ros/noetic/setup.bash && rostopic echo RealSense
+# source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo RealSense
+
+NODES
+  /camera/
+    realsense2_camera (nodelet/nodelet)
+    realsense2_camera_manager (nodelet/nodelet)
+
+ROS_MASTER_URI=http://localhost:11311
+
+This works:
+tegwyn@tegwyn-CF-H2AS01EDA:~$ source /home/tegwyn/projects/ros/ws00/devel/setup.bash
+tegwyn@tegwyn-CF-H2AS01EDA:~$ roslaunch realsense2_camera rs_camera.launch
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_t265.launch
+
+
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_camera.launch
+/opt/realsense/bin/realsense-viewer
+
+rostopic list
+
+The T265 sets its usb unique ID during initialization and without this parameter it wont be found. Once running it will publish, among others, the following topics:
+
+    /camera/odom/sample
+    /camera/accel/sample
+    /camera/gyro/sample
+    /camera/fisheye1/image_raw
+    /camera/fisheye2/image_raw
+
+To visualize the pose output and frames in RViz, start:
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera demo_t265.launch
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/odom/sample
+source /opt/ros/noetic/setup.bash && rostopic echo /camera/odom/sample
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic list
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /tf
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo tf
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic list
+source /opt/ros/noetic/setup.bash && rostopic list
+
+/camera/realsense2_camera_manager/bond
+/camera/tracking_module/parameter_descriptions
+/camera/tracking_module/parameter_updates
+/diagnostics
+/rosout
+/rosout_agg
+/tf
+/tf_static
+
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/realsense2_camera_manager/bond
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/tracking_module/parameter_descriptions
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /diagnostics
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /rosout
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_t265.launch
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic list
+
+/camera/accel/imu_info
+/camera/accel/sample
+/camera/gyro/imu_info
+/camera/gyro/sample
+/camera/odom/sample
+/camera/realsense2_camera_manager/bond
+/camera/tracking_module/parameter_descriptions
+/camera/tracking_module/parameter_updates
+/diagnostics
+/rosout
+/rosout_agg
+/tf
+/tf_static
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/accel/imu_info
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/accel/sample
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/gyro/sample
+
+
+Terminal 1:
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_t265.launch
+Terminal 2:
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/odom/sample
+
+gnome-terminal --working-directory='/home/tegwyn/myROS'
+
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_t265.launch & gnome-terminal -x bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/odom/sample; exec bash"
+
+D435:
+
+roslaunch realsense2_camera rs_camera.launch
+
+Terminal 1:
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_camera.launch
+Terminal 2:
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic list           
+
+/camera/color/camera_info
+/camera/color/image_raw
+/camera/color/image_raw/compressed
+/camera/color/image_raw/compressed/parameter_descriptions
+/camera/color/image_raw/compressed/parameter_updates
+/camera/color/image_raw/compressedDepth
+/camera/color/image_raw/compressedDepth/parameter_descriptions
+/camera/color/image_raw/compressedDepth/parameter_updates
+/camera/color/image_raw/theora
+/camera/color/image_raw/theora/parameter_descriptions
+/camera/color/image_raw/theora/parameter_updates
+/camera/depth/camera_info
+/camera/depth/image_rect_raw
+/camera/depth/image_rect_raw/compressed
+/camera/depth/image_rect_raw/compressed/parameter_descriptions
+/camera/depth/image_rect_raw/compressed/parameter_updates
+/camera/depth/image_rect_raw/compressedDepth
+/camera/depth/image_rect_raw/compressedDepth/parameter_descriptions
+/camera/depth/image_rect_raw/compressedDepth/parameter_updates
+/camera/depth/image_rect_raw/theora
+/camera/depth/image_rect_raw/theora/parameter_descriptions
+/camera/depth/image_rect_raw/theora/parameter_updates
+/camera/extrinsics/depth_to_color
+/camera/realsense2_camera_manager/bond
+/camera/rgb_camera/auto_exposure_roi/parameter_descriptions
+/camera/rgb_camera/auto_exposure_roi/parameter_updates
+/camera/rgb_camera/parameter_descriptions
+/camera/rgb_camera/parameter_updates
+/camera/stereo_module/auto_exposure_roi/parameter_descriptions
+/camera/stereo_module/auto_exposure_roi/parameter_updates
+/camera/stereo_module/parameter_descriptions
+/camera/stereo_module/parameter_updates
+/diagnostics
+/rosout
+/rosout_agg
+/tf
+/tf_static
+
+
+Terminal 1:
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_camera.launch
+Terminal 2:
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/color/camera_info
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/color/camera_info; exec bash"
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /rosout_agg; exec bash"
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_d400_and_t265.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic list; exec bash"
+
+  <arg name="depth_fps"           default="15"/>
+  <arg name="infra_fps"           default="15"/>
+  <arg name="color_fps"           default="15"/>
+  
+ /home/tegwyn/projects/ros/ws00/src/realsense-ros/realsense2_camera/launch' 
+  
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /rosout_agg; exec bash"
+
+                                                                                                                                                                                                                                            /opt/realsense/bin/realsense-viewer
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera demo_pointcloud.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /rosout_agg; exec bash"
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/depth/image_rect_raw/compressed; exec bash"
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch \
+realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && \
+rostopic echo /tf; exec bash"
+
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 2 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rosrun rviz rviz --fullscreen; exec bash"
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rosrun rviz rviz --fullscreen
+rosrun rviz rviz --fullscreen
+
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch realsense2_camera demo_pointcloud.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to              initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && rostopic echo /camera/depth/color/points; exec bash"
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch \
+realsense2_camera demo_pointcloud.launch & \
+gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && \
+rostopic echo /camera/extrinsics/depth_to_color; exec bash"
+
+
+sudo apt-get install ros-noetic-cv-bridge -y
+sudo apt-get install ros-noetic-image-transport
+sudo apt-get install ros-noetic-tf -y
+sudo apt-get install ros-noetic-diagnostic-updater -y
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch \
+realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && \
+rostopic echo /camera/realsense2_camera_manager/bond; exec bash"
+
+/home/tegwyn/projects/librealsense/examples/hello-realsense/rs-hello-realsense.cpp
+g++ $PROG_NAME && ./a.out
+cd /home/tegwyn/projects/librealsense/examples/hello-realsense/ && g++ rs-hello-realsense.cpp && ./a.out
+
+cd /home/tegwyn/projects/librealsense/examples/
+cmake -DBUILD_EXAMPLES=true
+cd /home/tegwyn/projects/librealsense/
+cmake -DBUILD_EXAMPLES=true
+sudo make install
+
+sudo gcc rs-hello-realsense.cpp
+cd /home/tegwyn/projects/librealsense/examples/hello-realsense/ && g++ rs-hello-realsense.cpp -o rs-hello-realsense
+
+sudo apt-get install ros-noetic-imu-filter-madgwick
+sudo apt-get install ros-noetic-rtabmap-ros
+sudo apt-get install ros-noetic-robot-localization
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch \
+realsense2_camera opensource_tracking.launch
+
+rs-enumerate-devices | grep Serial
+T265 serial number: 11622110177
+D435 serial number: 017322072294   and asic: 010423023782
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch \
+realsense2_camera rs_multiple_devices.launch serial_no_camera1:=11622110177 serial_no_camera2:=017322072294 \
+& gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && \
+rostopic list; exec bash"
+
+source /home/tegwyn/projects/ros/ws00/devel/setup.bash && roslaunch \
+realsense2_camera rs_multiple_devices.launch serial_no_camera1:=11622110177 serial_no_camera2:=017322072294 \
+& gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /home/tegwyn/projects/ros/ws00/devel/setup.bash && \
+rostopic echo /tf; exec bash"
+
+
+Two terminals:
+roslaunch realsense2_camera rs_camera.launch camera:=cam_1 serial_no:=<serial number of the first camera>
+roslaunch realsense2_camera rs_camera.launch camera:=cam_2 serial_no:=<serial number of the second camera>
+
+ROS_DISTRO=eloquent
+sudo apt update && sudo apt install curl gnupg2 lsb-release
+curl -s https://raw.githubusercontent.com/ros/eloquent/master/ros.asc | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
+sudo apt update
+sudo apt install ros-eloquent-ros-base
+
+. ~/ros2_eloquent/install/local_setup.bash
+
+source /home/tegwyn/ros2_eloquent/install/local_setup.bash && ros2 run demo_nodes_cpp talker
+source /home/tegwyn/ros2_eloquent/install/local_setup.bash && ros2 run demo_nodes_py listener
+
+sudo apt-get install python3-rosdep -y
+rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
+
+source /home/tegwyn/ros2_ws_foxy/install/local_setup.bash && ros2 launch realsense2_camera rs_launch.py
+
+
+ /home/tegwyn/ros2_ws_foxy/install/local_setup.bash
+ros2 run realsense2_camera realsense2_camera_node --ros-args -p filters:=colorizer
+
+source /opt/ros/foxy/setup.bash
+tegwyn@tegwyn-CF-H2AS01EDA:~/ros2_ws_foxy$ source /opt/ros/foxy/setup.bash
+tegwyn@tegwyn-CF-H2AS01EDA:~/ros2_ws_foxy$ colcon build
+
+sudo add-apt-repository [trusted=yes] "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo focal main" -u
+
+deb [trusted=yes] file:/media/cdrom0 kali-rolling main contrib non-free
+apt-get update --allow-insecure-repositories
+ --allow-unauthenticated
+
+sudo add-apt-repository  --allow-insecure-repositories "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo focal main" -u
+
+
+https://github.com/IntelRealSense/librealsense/tree/v2.41.0
+git clone https://github.com/IntelRealSense/librealsense.git --branch v2.41.0
+
+cmake ../ -DFORCE_RSUSB_BACKEND=ON -DCMAKE_BUILD_TYPE=release -DBUILD_EXAMPLES=true -DBUILD_GRAPHICAL_EXAMPLES=true
+
+source /home/tegwyn/catkin_ws/devel/setup.bash && roslaunch realsense2_camera demo_t265.launch
+
+source /opt/ros/melodic/setup.bash && roslaunch realsense2_camera demo_t265.launch
+
+source /opt/ros/melodic/setup.bash && roslaunch \
+realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /opt/ros/melodic/setup.bash && \
+rostopic echo /tf; exec bash"
+
+Failed to load library /opt/ros/melodic/lib//librealsense2_camera.so.
+# In a catkin workspace:
+source /opt/ros/melodic/setup.bash
+
+cd ~/catkin_ws
+$ catkin_make [make_targets] [-DCMAKE_VARIABLES=...]
+export ROS_VER=melodic
+catkin_make clean
+catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+catkin_make install
+
+CMake Error at robot_localization/CMakeLists.txt:35 (find_package):
+
+source /home/tegwyn/catkin_ws/devel/setup.bash  ..... does not work!
+
+source /opt/ros/melodic/setup.bash
+roslaunch realsense2_camera rs_camera.launch
+
+source /opt/ros/melodic/setup.bash
+cd ~/catkin_ws/src/
+git clone https://github.com/IntelRealSense/realsense-ros.git
+cd realsense-ros/
+git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+cd ..
+catkin_init_workspace
+cd ..
+catkin_make clean
+catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+catkin_make install
+
+source /opt/ros/melodic/setup.bash && roslaunch realsense2_camera rs_camera.launch
+
+source /opt/ros/melodic/setup.bash && roslaunch realsense2_camera demo_t265.launch
+
+source /opt/ros/melodic/setup.bash && roslaunch \
+realsense2_camera rs_camera.launch & gnome-terminal -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && sleep 10 && source /opt/ros/melodic/setup.bash && \
+rostopic echo /tf; exec bash"
+
+source /opt/ros/melodic/setup.bash && rostopic echo /tf
+source /opt/ros/melodic/setup.bash && rostopic list
+source /opt/ros/melodic/setup.bash && rostopic echo /tf_static
+
+/camera/realsense2_camera_manager/bond
+/camera/tracking_module/parameter_descriptions
+/camera/tracking_module/parameter_updates
+/diagnostics
+/rosout
+/rosout_agg
+/tf
+/tf_static
+
+source /opt/ros/melodic/setup.bash && rostopic echo /diagnostics
+source /opt/ros/melodic/setup.bash && rostopic echo /rosout
+source /opt/ros/melodic/setup.bash && rostopic echo /camera/tracking_module/parameter_updates
+source /opt/ros/melodic/setup.bash && rostopic echo /camera/tracking_module/parameter_descriptions
+source /opt/ros/melodic/setup.bash && rostopic echo /camera/realsense2_camera_manager/bond
+source /opt/ros/melodic/setup.bash && rostopic echo /tf -n 1
+source /opt/ros/melodic/setup.bash && rostopic echo /camera/odom/sample
+
+
+source /opt/ros/melodic/setup.bash && roslaunch realsense2_camera rs_camera.launch
+
+source /opt/ros/melodic/setup.bash && roslaunch realsense2_camera rs_t265.launch
+source /opt/ros/melodic/setup.bash && rostopic list
+
+tegwyn@tegwyn-Xavier:~$ source /opt/ros/melodic/setup.bash && rostopic list
+/camera/accel/imu_info
+/camera/accel/sample
+/camera/gyro/imu_info
+/camera/gyro/sample
+/camera/odom/sample
+/camera/realsense2_camera_manager/bond
+/camera/tracking_module/parameter_descriptions
+/camera/tracking_module/parameter_updates
+/diagnostics
+/rosout
+/rosout_agg
+/tf
+/tf_static
+
+Terminal 1:
+source /opt/ros/melodic/setup.bash && roslaunch realsense2_camera rs_t265.launch
+
+Terminal 2:
+source /opt/ros/melodic/setup.bash && rostopic echo /tf
+or:
+source /opt/ros/melodic/setup.bash && rostopic echo /camera/odom/sample
+
+https://github.com/ros-agriculture/ublox_f9p.git
+source /opt/ros/melodic/setup.bash
+cd ~/catkin_ws/src/
+git clone https://github.com/ros-agriculture/ublox_f9p.git
+cd ublox_f9p/
+git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+cd ..
+catkin_init_workspace
+cd ..
+catkin_make clean
+catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+catkin_make install
+
+/home/tegwyn/catkin_ws/src/ublox_f9p/ublox_gps/src/node.cpp:39:10: fatal error: rtcm_msgs/Message.h: No such file or directory
+ #include <rtcm_msgs/Message.h>
+
+Specifically, I added <depend>rtcm_msgs</depend> to ublox_gps/package.xml and I aded rtcm_msgs to the find_package(...) part of ublox_gps/CMakeLists.txt
+
+https://github.com/paddygoat/ublox_f9p.git
+
+source /opt/ros/melodic/setup.bash
+cd ~/catkin_ws/src/
+git clone https://github.com/bao-eng/ublox.git
+cd ublox/
+git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+cd ..
+catkin_init_workspace
+cd ..
+catkin_make clean
+catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+catkin_make install
+
+cd ~/ublox/
+/home/tegwyn/catkin_ws/src/ublox/ublox_gps/launch/ublox_zed-f9p.launch
+cd /home/tegwyn/catkin_ws/src/ublox/
+
+cd /home/tegwyn/catkin_ws/src/ublox/ && source /opt/ros/melodic/setup.bash && roslaunch ublox_gps ublox_zed-f9p.launch
+
+
+https://github.com/KumarRobotics/ublox.git
+source /opt/ros/melodic/setup.bash
+cd ~/catkin_ws/src/
+git clone https://github.com/KumarRobotics/ublox.git
+cd ublox/
+git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+cd ..
+catkin_init_workspace
+cd ..
+catkin_make clean
+
+catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+catkin_make install
+
+ublox_device.launch
+
+source /opt/ros/melodic/setup.bash
+cd ~/catkin_ws/src/
+git clone https://github.com/bao-eng/ublox.git
+cd ublox/
+git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+cd ..
+catkin_init_workspace
+cd ..
+catkin_make clean
+catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+catkin_make install
+
+roslaunch ublox_gps ublox_device.launch
+roslaunch ublox_gps ublox_zed-f9p.launch
+
+RLException: [ublox_zed-f9p.launch] is neither a launch file in package [ublox_gps] nor is [ublox_gps] a launch file name
+
+rospack find ublox_zed-f9p.launch
+source /home/tegwyn/catkin_ws/devel/setup.bash && roslaunch ublox_gps ublox_zed-f9p.launch
+
+U-Blox: Could not open serial port :/dev/ttyACM0 open: No such file or directory
+
+source /home/tegwyn/catkin_ws/devel/setup.bash
+roslaunch ublox_gps ublox_zed-f9p.launch
+
+Terminal 1:
+sudo chmod 666 /dev/ttyACM0
+then:
+source /opt/ros/melodic/setup.bash
+then:
+source /home/tegwyn/catkin_ws/devel/setup.bash
+then:
+roslaunch ublox_gps ublox_zed-f9p.launch
+
+Terminal 2:
+source /opt/ros/melodic/setup.bash && rostopic list
+/diagnostics
+/rosout
+/rosout_agg
+/ublox_gps/fix
+/ublox_gps/fix_velocity
+/ublox_gps/navclock
+/ublox_gps/navposecef
+/ublox_gps/navpvt
+/ublox_gps/navrelposned
+/ublox_gps/navsat
+/ublox_gps/navstatus
+
+
+source /opt/ros/melodic/setup.bash && rostopic echo /ublox_gps/fix
+
+roslaunch ublox_dog_gps ublox_dog_zed-f9p.launch
+
+RLException: [ublox_dog_zed-f9p.launch] is neither a launch file in package [ublox_dog_gps] nor is [ublox_dog_gps] a launch file name
+The traceback for the exception was written to the log file
+
+roslaunch ublox_dog_gps ublox_dog_zed-f9p.launch
+roslaunch ublox_snout_gps ublox_snout_zed-f9p.launch
+
+source /opt/ros/melodic/setup.bash && source /home/tegwyn/catkin_ws/devel/setup.bash && rostopic echo /ublox_snout_gps/fix
+
+source /opt/ros/melodic/setup.bash && rosrun rqt_graph rqt_graph
+
+
+source /home/tegwyn/catkin_ws/devel/setup.bash && rostopic echo /ublox_snout_gps/navposecef
+source /opt/ros/melodic/setup.bash && rostopic echo /ublox_snout_gps/navposecef
+
+
+source /home/tegwyn/catkin_ws/devel/setup.bash && rostopic echo /ublox_snout_gps/navposecef
+source /opt/ros/melodic/setup.bash && rostopic echo /ublox_dog_gps/navposecef
+source /opt/ros/melodic/setup.bash && rostopic echo /ublox_dog_gps/fix
+
+source /opt/ros/melodic/setup.bash && rostopic echo /ublox_dog_gps/navPOSECEF
+
+
+
+
