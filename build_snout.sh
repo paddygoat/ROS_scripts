@@ -1,7 +1,7 @@
 #!/bin/bash
 # cd /home/tegwyn/Desktop/ROS_startup_scripts/ && bash build_snout.sh
-echo whales | sudo -S jetson_clocks
-echo whales | sudo chmod 666 /dev/ttyUSB0
+echo ##### | sudo -S jetson_clocks
+echo ##### | sudo chmod 666 /dev/ttyUSB0
 
 
 source /opt/ros/melodic/setup.bash
