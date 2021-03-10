@@ -1,7 +1,7 @@
 #!/bin/bash
 # cd /home/tegwyn/Desktop/ROS_startup_scripts/ && bash Ublox_navsat.sh
-echo whales | sudo -S jetson_clocks
-echo whales | sudo chmod 666 /dev/ttyACM0
+echo ##### | sudo -S jetson_clocks
+echo ##### | sudo chmod 666 /dev/ttyACM0
 
 
 gnome-terminal --geometry=60x35-800+0 -- bash -c "echo 'Waiting for ROS publisher to initialise ... ' && \
