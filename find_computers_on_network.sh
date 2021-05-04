@@ -67,7 +67,7 @@ gnome-terminal --geometry=70x35-800+0 -- bash -c "sshpass -p "piratesrus" ssh -Y
 
 # nmap -sP 172.20.10.0/24
 
-# nmap -sn 192.168.1.0/24
+# nmap -sn 192.168.3.0/24
 
 ###
 # Starting Nmap 7.60 ( https://nmap.org ) at 2021-02-18 09:26 GMT
