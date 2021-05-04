@@ -2,6 +2,8 @@
 # 
 # cd /home/paddy/Desktop/RoboController/ && bash find_computers_on_network.sh
 
+# sudo apt-get install nmap
+# nmap -sn 192.168.3.0/24
 # ping dog01.local -c 1
 # ping nest01.local -c 1
 # ping quadrosbot.local -c -1   .... This is the camera streamer.
