@@ -4,6 +4,7 @@
 
 # ping dog01.local -c 1
 # ping nest01.local -c 1
+# echo 192.168.3.{1..254}|xargs -n1 -P0 ping -c1|grep "bytes from"
 
 RED='\033[0;31m'
 BLUE='\033[0;34m'
