@@ -62,6 +62,9 @@ gnome-terminal --geometry=70x35-800+0 -- bash -c "sshpass -p "piratesrus" ssh -Y
 # done
 
 # 172.20.10.1
+
+# sudo apt-get install nmap
+
 # nmap -sP 172.20.10.0/24
 
 # nmap -sn 192.168.1.0/24
