@@ -4,6 +4,7 @@
 
 # ping dog01.local -c 1
 # ping nest01.local -c 1
+# ping quadrosbot.local -c -1   .... This is the camera streamer.
 # echo 192.168.3.{1..254}|xargs -n1 -P0 ping -c1|grep "bytes from"
 # ssh -Y pi@192.168.3.103
 
